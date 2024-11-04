@@ -1,18 +1,29 @@
-import { Text, View } from "react-native";
-import { useBatteryLevel, useLowPowerMode } from "expo-battery";
+import { Button, Text, View } from "react-native";
+import * as Battery from 'expo-battery'
 
 export default function BatteryComp(){
-    const batteryLevel = useBatteryLevel();
-    const lowPowerMode = useLowPowerMode();
+    const levelHandle = async()=>{
+        const level = await Battery.getBatteryLevelAsync();
+        alert(level)
+    }
+    const powerState = async()=>{
+        const state = await Battery.getPowerStateAsync();
+        alert(JSON.stringify(state))
+    }
+    Battery.addBatteryLevelListener((event)=>{
+        console.log(event)
+    })
 
     return(
         <View>
-            <Text style={{fontSize:20}}>
-                Battery Level:{batteryLevel}
-            </Text>
-            <Text style={{fontSize:20}}>
-                Power mode:{lowPowerMode? 'Yes':'No'}
-            </Text>
+            <Button
+                title="Level"
+                onPress={levelHandle}
+            />
+            <Button
+                title="State"
+                onPress={powerState}
+            />
         </View>
     )
 }
