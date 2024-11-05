@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 
 /// VIEWS
 // import BatteryComp from './components/battery';
@@ -9,13 +10,14 @@ import * as SplashScreen from 'expo-splash-screen';
 // import FormElements from './components/formElements';
 // import GradientComp from './components/gradient';
 import FontsComp from './components/font';
-import { useEffect } from 'react';
+import LocationComp from './components/location';
+
 
 SplashScreen.preventAutoHideAsync()
 
 export default function App() {
   const [loaded,error] = useFonts({
-    'imperial':require('./assets/fonts/ImperialScript-Regular.ttf')
+    'imperial':require('./assets/fonts/imperial.ttf')
   });
 
   useEffect(()=>{
@@ -27,7 +29,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-        <FontsComp/>
+        <LocationComp/>
     </View>
   );
 }

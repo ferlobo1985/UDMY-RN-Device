@@ -30,6 +30,13 @@ export default function LocationComp(){
                 title="Get location"
                 onPress={getLocation}
             />
+            { location && 
+                <View style={{width:'80%',marginTop:10}}>
+                    <Text style={{fontSize:20}}>
+                        {JSON.stringify(location)}
+                    </Text>
+                </View>
+            }
         </View>
     )
 }
