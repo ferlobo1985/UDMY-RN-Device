@@ -16,7 +16,8 @@
     "expo-battery": "~8.0.1",
     "expo-device": "~6.0.2",
     "expo-checkbox": "~3.0.0",
-    "@react-native-picker/picker": "2.7.5"
+    "@react-native-picker/picker": "2.7.5",
+    "expo-linear-gradient": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
